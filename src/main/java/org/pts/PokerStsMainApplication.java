@@ -1,7 +1,9 @@
-package org.pst;
+package org.pts;
 
+import org.pts.Runner.RunnerCmd;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 
 
@@ -14,5 +16,10 @@ public class PokerStsMainApplication {
 
     public static void main(String args[]){
         SpringApplication.run(PokerStsMainApplication.class,args);
+    }
+
+    @Bean
+    public RunnerCmd runnerCmd() {
+        return new RunnerCmd();
     }
 }
