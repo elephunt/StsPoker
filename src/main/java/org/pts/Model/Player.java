@@ -42,4 +42,13 @@ public class Player {
     public void setLastName(String lastName) {
         LastName = lastName;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                '}';
+    }
 }

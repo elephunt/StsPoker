@@ -12,9 +12,16 @@ import javax.sql.DataSource;
 /**
  * Created by romanm on 12/03/17.
  */
+
+/**
+ * This class init. once on starting
+ */
 public class RunnerCmd implements CommandLineRunner {
 
     protected final Log logger = LogFactory.getLog(getClass());
+
+
+
     @Autowired
     PlayerRepository repository;
     @Autowired
@@ -30,5 +37,8 @@ public class RunnerCmd implements CommandLineRunner {
         logger.info("Hello");
         logger.info("Data Source " + dataSource.toString());
         logger.info("Count of players : " + repository.count());
+        repository.findAll().forEach(Player ->{
+            System.out.println(Player.toString());
+        });
     }
 }
