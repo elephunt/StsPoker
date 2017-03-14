@@ -1,22 +1,35 @@
 package org.pts.Model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by romanm on 12/03/17.
  */
 @Entity
-@Table(name = "Players")
+@Table(name = "player")
 public class Player {
 
-    private Long id;
-
-    private String FirstName;
-
-    private String LastName;
-
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Set<Summary> summaries = new HashSet<Summary>();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private Long id;
+    @Column(name = "FirstName")
+    private String FirstName;
+    @Column(name = "LastName")
+    private String LastName;
+
+    public Player() {
+
+    }
+
+    public Player(Set<Summary> summaries) {
+        this.summaries = summaries;
+    }
+
     public Long getId() {
         return id;
     }
@@ -25,7 +38,7 @@ public class Player {
         this.id = id;
     }
 
-    @Column(name = "FirstName")
+
     public String getFirstName() {
         return FirstName;
     }
@@ -34,7 +47,7 @@ public class Player {
         FirstName = firstName;
     }
 
-    @Column(name = "LastName")
+
     public String getLastName() {
         return LastName;
     }
@@ -43,12 +56,22 @@ public class Player {
         LastName = lastName;
     }
 
+
+    public Set<Summary> getSummaries() {
+        return summaries;
+    }
+
+    public void setSummaries(Set<Summary> summaries) {
+        this.summaries = summaries;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
                 "id=" + id +
                 ", FirstName='" + FirstName + '\'' +
                 ", LastName='" + LastName + '\'' +
+                ", summaries=" + summaries +
                 '}';
     }
 }
