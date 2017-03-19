@@ -7,6 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by romanm on 14/03/17.
  */
@@ -19,5 +21,7 @@ public interface SummaryRepository extends CrudRepository<Summary, Long> {
     Long findSumOfAmountByPlayerId(@Param("plid")Long playerId);
 
     Summary findPlayerIdById(Long id);
+
+    List<Summary> findSummaryByPlayer_Id(Long id);
 
 }

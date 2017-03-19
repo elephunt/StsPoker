@@ -12,6 +12,7 @@ import org.springframework.boot.CommandLineRunner;
 import javax.sql.DataSource;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by romanm on 12/03/17.
@@ -57,9 +58,15 @@ public class RunnerCmd implements CommandLineRunner {
         logger.info("Count of players : " + repository.count());
         logger.info("Count of summary : " + summaryRepository.count());
         Player one = repository.findOne(3l);
-
+        logger.info(one.toString());
         logger.info(summaryRepository.findSumOfAmountByPlayerId(443l));
         logger.info(summaryRepository.findPlayerIdById(1l).getPlayer().getId());
+        List<Summary> summaryByPlayer_id = summaryRepository.findSummaryByPlayer_Id(3l);
+
+        System.out.println(summaryByPlayer_id.size());
+        summaryByPlayer_id.forEach(summary -> {
+            logger.info(summary.toString());
+        });
         //   logger.info(one.toString());
     }
 }

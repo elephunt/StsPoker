@@ -67,11 +67,20 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "id=" + id +
-                ", FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", summaries=" + summaries +
-                '}';
+        StringBuilder builder = new StringBuilder();
+        builder.append("Id : ")
+                .append(this.id)
+                .append(" First Name : ")
+                .append(this.getFirstName())
+                .append(" Last Name : ")
+                .append(this.getLastName()).append("Summaries : [ ");
+        for (Summary summary : getSummaries()) {
+            builder.append("Amount : ")
+                    .append(summary.getAmount())
+                    .append(" Date ")
+                    .append(summary.getDate());
+        }
+        builder.append(" ]");
+        return builder.toString();
     }
 }
