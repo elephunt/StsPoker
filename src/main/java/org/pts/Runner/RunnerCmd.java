@@ -57,6 +57,9 @@ public class RunnerCmd implements CommandLineRunner {
         logger.info("Count of players : " + repository.count());
         logger.info("Count of summary : " + summaryRepository.count());
         Player one = repository.findOne(3l);
+
+        logger.info(summaryRepository.findSumOfAmountByPlayerId(443l));
+        logger.info(summaryRepository.findPlayerIdById(1l).getPlayer().getId());
         //   logger.info(one.toString());
     }
 }
