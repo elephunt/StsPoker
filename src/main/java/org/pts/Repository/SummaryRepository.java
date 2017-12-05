@@ -9,9 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by romanm on 14/03/17.
- */
 @RepositoryRestResource(collectionResourceRel = "summary",path = "summary")
 @Transactional
 public interface SummaryRepository extends CrudRepository<Summary, Long> {

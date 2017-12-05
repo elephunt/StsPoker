@@ -4,23 +4,24 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by romanm on 12/03/17.
- */
+
 @Entity
 @Table(name = "player")
 public class Player {
 
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Set<Summary> summaries = new HashSet<Summary>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
     private Long id;
-    @Column(name = "FirstName")
+
+    @Column(name = "firstname")
     private String FirstName;
-    @Column(name = "LastName")
+
+    @Column(name = "lastname")
     private String LastName;
+
 
     public Player() {
 

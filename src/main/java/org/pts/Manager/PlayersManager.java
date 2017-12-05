@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by roman on 13/03/17.
- */
+
 @Service
 public class PlayersManager {
 
@@ -21,5 +19,10 @@ public class PlayersManager {
         return Lists.newArrayList(repository.findAll());
     }
 
+
+    public Player addNewPlayer(Player player) {
+        Player savedPlayer = repository.save(player);
+        return savedPlayer;
+    }
 
 }

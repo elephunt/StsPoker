@@ -2,17 +2,12 @@ package org.pts.Runner;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.pts.Model.Player;
-import org.pts.Model.Summary;
 import org.pts.Repository.PlayerRepository;
 import org.pts.Repository.SummaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
 import javax.sql.DataSource;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
 
 /**
  * Created by romanm on 12/03/17.
@@ -26,7 +21,6 @@ public class RunnerCmd implements CommandLineRunner {
     protected final Log logger = LogFactory.getLog(getClass());
 
 
-
     @Autowired
     PlayerRepository repository;
 
@@ -36,7 +30,12 @@ public class RunnerCmd implements CommandLineRunner {
     @Autowired
     private DataSource dataSource;
 
-    public void run(final String... strings) throws Exception {
+    @Override
+    public void run(String... strings) throws Exception {
+
+    }
+
+/*public void run(final String... strings) throws Exception {
         for (int i = 0; i < 500; i++) {
             Player player = new Player();
             player.setFirstName("Test" + i);
@@ -68,5 +67,5 @@ public class RunnerCmd implements CommandLineRunner {
             logger.info(summary.toString());
         });
         //   logger.info(one.toString());
-    }
+    }*/
 }

@@ -7,20 +7,19 @@ import java.util.Date;
  * Created by romanm on 14/03/17.
  */
 @Entity
-@Table(name = "SUMMARY")
+@Table(name = "summary")
 public class Summary {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = false)
     private Long id;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "Date")
     private Date date;
 
-    @Column(name = "amount")
+    @Column(name = "Amount")
     private Long amount;
 
     @ManyToOne
