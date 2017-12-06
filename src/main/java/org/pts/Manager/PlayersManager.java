@@ -25,4 +25,9 @@ public class PlayersManager {
         return savedPlayer;
     }
 
+    public Player getPlayerByNameAndLastName(String firstName, String LastName) {
+        Player player = repository.findByFirstnameAndLastname(firstName, LastName);
+        return player;
+    }
+
 }

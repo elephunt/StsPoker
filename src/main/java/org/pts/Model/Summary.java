@@ -64,12 +64,7 @@ public class Summary {
 
     @Override
     public String toString() {
-        return "Summary{" +
-                "id=" + id +
-                ", date=" + date +
-                ", amount=" + amount +
-                ", player=" + player +
-                '}';
+        return "";
     }
 
 }

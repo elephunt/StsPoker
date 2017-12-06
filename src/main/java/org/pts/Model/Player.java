@@ -1,35 +1,27 @@
 package org.pts.Model;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Entity
 @Table(name = "player")
 public class Player {
 
-    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    Set<Summary> summaries = new HashSet<Summary>();
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "firstname")
-    private String FirstName;
+    private String firstname;
 
     @Column(name = "lastname")
-    private String LastName;
+    private String lastname;
 
 
     public Player() {
 
     }
 
-    public Player(Set<Summary> summaries) {
-        this.summaries = summaries;
-    }
 
     public Long getId() {
         return id;
@@ -40,31 +32,23 @@ public class Player {
     }
 
 
-    public String getFirstName() {
-        return FirstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
-
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
 
-    public Set<Summary> getSummaries() {
-        return summaries;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setSummaries(Set<Summary> summaries) {
-        this.summaries = summaries;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
+
 
     @Override
     public String toString() {
@@ -72,15 +56,9 @@ public class Player {
         builder.append("Id : ")
                 .append(this.id)
                 .append(" First Name : ")
-                .append(this.getFirstName())
+                .append(this.getFirstname())
                 .append(" Last Name : ")
-                .append(this.getLastName()).append("Summaries : [ ");
-        for (Summary summary : getSummaries()) {
-            builder.append("Amount : ")
-                    .append(summary.getAmount())
-                    .append(" Date ")
-                    .append(summary.getDate());
-        }
+                .append(this.getLastname()).append(" Summaries : [ ");
         builder.append(" ]");
         return builder.toString();
     }
