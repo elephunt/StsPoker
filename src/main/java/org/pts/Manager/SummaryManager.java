@@ -34,6 +34,9 @@ public class SummaryManager {
         return summary;
     }
 
+    public List<Summary> getSummaries(Player player) {
+        return summaryRepository.findSummaryByPlayer_Id(player.getId());
+    }
 
     public void addSummary(Player player, Long sum) {
         Player playerDto = playerRepository.findByFirstnameAndLastname(player.getFirstname(), player.getLastname());

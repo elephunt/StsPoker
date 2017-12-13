@@ -1,8 +1,0 @@
-databaseChangeLog:
-    - preConditions:
-       - runningAs:
-           username: postgres
-    - includeAll:
-        path: db/changelog/changes/
-    - property:
-        file: db/changelog/liquibase.properties

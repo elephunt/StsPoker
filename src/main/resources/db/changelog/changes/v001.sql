@@ -1,4 +1,4 @@
-CREATE TABLE "player" (
+CREATE TABLE IF NOT EXISTS "player" (
 
   ID        SERIAL PRIMARY KEY NOT NULL,
 
@@ -7,7 +7,7 @@ CREATE TABLE "player" (
   LastName  VARCHAR(50)
 );
 
-CREATE TABLE "summary" (
+CREATE TABLE IF NOT EXISTS "summary" (
 
   ID        SERIAL PRIMARY KEY NOT NULL,
 

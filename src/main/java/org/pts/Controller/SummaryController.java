@@ -7,6 +7,8 @@ import org.pts.Model.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by roman on 06/12/17.
  */
@@ -29,6 +31,12 @@ public class SummaryController {
     public Summary Summary(@RequestParam String firstName, @RequestParam String lastName) {
         Player playerByNameAndLastName = playersManager.getPlayerByNameAndLastName(firstName, lastName);
         return summaryManager.getSummary(playerByNameAndLastName);
+    }
+
+    @RequestMapping(value = "all", method = RequestMethod.GET)
+    public List<Summary> getAllSummaries(@RequestParam String firstName, String lastName) {
+        Player player = playersManager.getPlayerByNameAndLastName(firstName, lastName);
+        return summaryManager.getSummaries(player);
     }
 
 }
